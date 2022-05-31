@@ -74,4 +74,23 @@ class PagesController extends Controller {
         $cont = new Pages();
         return view('pages.update-message', ['data' => $cont->find($id)]);
     }
+
+    public function updateMessageSubmit($id, PagesRequest $req): string {
+        $pages = Pages::find($id);
+        $pages->name = $req->input('name');
+        $pages->email = $req->input('email');
+        $pages->subject = $req->input('subject');
+        $pages->message = $req->input('message');
+
+        $pages->save();
+
+        return redirect()->route('contact-data-one', $id)->with('success', 'Your message has been successfully edited!!!!');
+    }
+
+    public function deleteMessage($id) {
+        Pages::find($id)->delete();
+        return redirect()->route('contact-data')->with('success', 'Your message has been successfully deleted!!!!');
+
+    }
+
 }

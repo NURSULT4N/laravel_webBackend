@@ -27,6 +27,10 @@ Route::get('/contact/all/{id}', 'App\Http\Controllers\PagesController@showOneMes
     ->name('contact-data-one');
 Route::get('/contact/all/{id}/update', 'App\Http\Controllers\PagesController@updateMessage')
     ->name('contact-update');
+Route::get('/contact/all/{id}/delete', 'App\Http\Controllers\PagesController@deleteMessage')
+    ->name('contact-delete');
+Route::post('/contact/all/{id}/update', 'App\Http\Controllers\PagesController@updateMessageSubmit')
+    ->name('contact-update-submit');
 
 Route::post('/subscribes', 'App\Http\Controllers\PagesController@subscribes')->name('subscribes');
 Route::get('/signup', 'App\Http\Controllers\PagesController@signup')->name('signup');

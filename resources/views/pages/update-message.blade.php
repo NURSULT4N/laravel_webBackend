@@ -5,33 +5,33 @@
         <div class="row">
             @include('inc.notifications')
             <div class="container col-md-7 mx-auto">
-                <form action="{{ route('contact-form') }}" method="post">
+                <form action="{{ route('contact-update-submit', $data->id) }}" method="post">
                     @csrf
                     <div class="row">
                         <!-- Name input -->
                             <div class="col">
                         <div class="form-outline mb-4">
                             <label class="form-label" for="name">Name</label>
-                            <input name="name" type="text" id="name" class="form-control" />
+                            <input name="name" type="text" value="{{$data->name}}" id="name" class="form-control" />
                         </div>
                             </div>
                         <!-- Email input -->
                             <div class="col">
                         <div class="form-outline mb-4">
                             <label class="form-label" for="email">Email address</label>
-                            <input name="email" type="text" id="email" class="form-control" />
+                            <input name="email" type="text" value="{{$data->email}}" id="email" class="form-control" />
                         </div>
                             </div>
                         <!-- Subject input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="subject">Subject</label>
-                            <input name="subject" type="text" id="subject" class="form-control" />
+                            <input name="subject" type="text" value="{{$data->subject}}" id="subject" class="form-control" />
                         </div>
 
                         <!-- Message input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="message">Message</label>
-                            <textarea name="message" class="form-control" id="message" rows="4"></textarea>
+                            <textarea name="message" class="form-control" id="message" rows="4">{{$data->message}}</textarea>
                         </div>
 
                         <!-- Checkbox -->
@@ -43,7 +43,7 @@
                         </div>
 
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
+                        <button type="submit" class="btn btn-primary btn-block mb-4">Update</button>
                     </div>
                 </form>
             </div>
