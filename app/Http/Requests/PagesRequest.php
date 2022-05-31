@@ -26,8 +26,8 @@ class PagesRequest extends FormRequest
         return [
             'name' => 'required|min:3',
             'email' => 'required|email',
-            'subject' => 'required|min:5|max:50',
-            'message' => 'required|min:10'
+            'subject' => 'required|min:2|max:50',
+            'message' => 'required|min:5'
         ];
     }
 }

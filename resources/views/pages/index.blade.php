@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="page__main-block main-block">
-        @include('inc.notifications')
+        <div>@include('inc.notifications')</div>
         <div class="main-block__container _container">
             <div class="main-block__body">
                 <h1 class="main-block__title">Beautiful Smiles Are Created Here</h1>

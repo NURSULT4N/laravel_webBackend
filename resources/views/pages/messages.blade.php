@@ -1,7 +1,7 @@
 @extends('layouts.kz')
 
 @section('content')
-    @include('inc.notifications')
+    <div>@include('inc.notifications')</div>
     <h1 style="text-align: center; margin-top: 15px">All Messages</h1>
     @foreach($data as $el)
         <div class="container col-md-8 mx-auto mt-3">

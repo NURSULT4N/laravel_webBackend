@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mt-4">
         <div class="row">
-            @include('inc.notifications')
+            <div>@include('inc.notifications')</div>
             <div class="container col-md-7 mx-auto">
                 <form action="{{ route('contact-form') }}" method="post">
                     @csrf
