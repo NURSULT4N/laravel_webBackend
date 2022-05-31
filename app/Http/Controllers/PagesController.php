@@ -12,7 +12,7 @@ use App\Models\Subscribes;
 
 
 class PagesController extends Controller {
-    public function index(): string {
+    public function index() {
         return view('pages.index');
     }
 
@@ -51,11 +51,6 @@ class PagesController extends Controller {
         return redirect()->route('home')->with('success', 'Your message was successfully sent!!!!');
     }
 
-    public function allData() {
-        $cont = new Pages();
-        return view('pages.messages', ['data' => $cont->orderBy('id', 'desc')->take(4)->get()]);
-    }
-
     public function subscribes(SubscribesRequest $reqi) {
         $subs = new Subscribes();
         $subs->email = $reqi->input('email');
@@ -65,5 +60,18 @@ class PagesController extends Controller {
         return redirect()->route('home')->with('success', 'Thanks for subscribing!!!');
     }
 
+    public function allData() {
+        $cont = new Pages();
+        return view('pages.messages', ['data' => $cont->all()]);
+    }
 
+    public function showOneMessage($id) {
+        $cont = new Pages();
+        return view('pages.one-message', ['data' => $cont->find($id)]);
+    }
+
+    public function updateMessage($id) {
+        $cont = new Pages();
+        return view('pages.update-message', ['data' => $cont->find($id)]);
+    }
 }

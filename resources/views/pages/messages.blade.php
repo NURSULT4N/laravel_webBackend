@@ -9,7 +9,7 @@
                 <p>{{ $el->message }}</p>
                 <p>{{ $el->name }}</p>
                 <p>{{ $el->email }}</p>
-                <a href="#"><button class="btn btn-warning">Details</button></a>
+                <a href="{{ route('contact-data-one', $el->id) }}"><button class="btn btn-warning">Details</button></a>
             </div>
         </div>
     @endforeach

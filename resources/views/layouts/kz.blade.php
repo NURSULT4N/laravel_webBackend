@@ -13,9 +13,7 @@
 </head>
 <body>
 @include('inc.navbar')
-{{--@include('inc.notifications')--}}
 @yield('content')
-
 @include('inc.footer')
 <script src="{{asset('js/app.js')}}"></script>
 </body>
