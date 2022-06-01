@@ -162,6 +162,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+//        need for cart
+        Darryldecode\Cart\CartServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -230,6 +232,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+//        need for cart
+        'Cart' => Darryldecode\Cart\Facades\CartFacade::class
     ],
 
 ];
