@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'App\Http\Controllers\PagesController@index')->name('home');
+Route::get('/a', 'App\Http\Controllers\PagesController@index')->name('home');
 Route::get('/contact', 'App\Http\Controllers\PagesController@contact')->name('contact');
 Route::get('/about', 'App\Http\Controllers\PagesController@service')->name('about');
 
@@ -35,3 +37,11 @@ Route::post('/contact/all/{id}/update', 'App\Http\Controllers\PagesController@up
 Route::post('/subscribes', 'App\Http\Controllers\PagesController@subscribes')->name('subscribes');
 Route::get('/signup', 'App\Http\Controllers\PagesController@signup')->name('signup');
 Route::post('/signup/register', 'App\Http\Controllers\PagesController@register')->name('register');
+
+
+Route::get('/', [ProductController::class, 'productList'])->name('products.list');
+Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
+Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
+Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
+Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
